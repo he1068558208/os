@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>部门员工</title>
+    <link href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+   <div class="container">
+	<div class="row clearfix">
+		<div class="col-md-12 column">
+			<table class="table">
+             <tr>
+            <td>员工编号</td>
+            <td>员工姓名</td>
+            <td>员工工作</td>
+                 <td>员工薪水</td>
+            <td>员工补贴</td>
+        </tr>
+{#        {% if emp_list.count is not zero %}#}
+        {% for emp in emp_list %}
+
+         <tr>
+            <td>{{ emp.no }}</td>
+            <td>{{ emp.name }}</td>
+            <td>{{ emp.job }}</td>
+            <td>{{ emp.sal }}</td>
+            <td>{{ emp.comm }}</td>
+        </tr>
+
+        {% endfor %}
+{#            <a href="{% url 'depts' %}">返回部门列表</a>#}
+
+			</table>
+
+		</div>
+	</div>
+</div>
+
+</body>
+</html>

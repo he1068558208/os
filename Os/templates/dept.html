@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>部门</title>
+    <link href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+</head>
+    <h1>部门信息</h1>
+    <hr>
+    <div class="container">
+	<div class="row clearfix">
+		<div class="col-md-12 column">
+			<table class="table">
+             <tr>
+            <td>部门编号</td>
+            <td>部门名称</td>
+            <td>部门地址</td>
+                 <td>是否优秀</td>
+            <td>操作</td>
+        </tr>
+        {% for dept in dept_list %}
+         <tr>
+            <td>{{ dept.no }}</td>
+             <td><a href="/hrs/emp?no={{ dept.no }}">{{ dept.name }}</a></td>
+            <td>{{ dept.location }}</td>
+                {% if dept.excellent %}
+                <td><img src="{% static 'images/smile.png' %}" alt="优秀"></td>
+                 {% else %}
+                 <td><img src="{% static 'images/sad.png' %}" alt="有待提高"></td>
+                 {% endif %}
+            <td>
+            <a href="/hrs/deldept?no={{ dept.no }}" class="btn btn-xs btn-warning">删除</a>
+            </td>
+         </tr>
+        {% endfor %}
+			</table>
+        <form method="get">
+             <a href="/hrs/add1">添加部门</a>
+        </form>
+		</div>
+	</div>
+</div>
+
+</body>
+</html>

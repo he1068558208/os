@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta charset="UTF-8">
+    <title>添加部门</title>
+</head>
+<body>
+    <h1>部门管理</h1>
+        <form action="hrs/add1" method="post">
+            <table>
+                {{ f.as_table }}
+            </table>
+            {% csrf_token %}
+            <input type="submit" value="添加">
+        </form>
+        <hr>
+        <a href="/hrs/depts">查看添加之后的所有部门</a>
+</body>
+</html>
